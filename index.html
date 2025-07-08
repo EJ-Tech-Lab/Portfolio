@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJ | Robotics Engineer</title>
+    <link rel="stylesheet" href="home-styles.css" />
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Esam's Portfolio</div>
+        <button class="button" data-text="Home"><span class="actual-text">&nbsp;Home&nbsp;</span><span
+                aria-hidden="true" class="hover-text">&nbsp;Home&nbsp;</span></button>
+        <button class="button" data-text="Projects"><span class="actual-text">&nbsp;Projects&nbsp;</span><span
+                aria-hidden="true" class="hover-text">&nbsp;Projects&nbsp;</span></button>
+        <button class="button" data-text="About"><span class="actual-text">&nbsp;About&nbsp;</span><span
+                aria-hidden="true" class="hover-text">&nbsp;About&nbsp;</span></button>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <video autoplay loop muted playsinline class="bg-video">
+            <source src="assets/videos/home-section-1.mp4" type="video/mp4">
+        </video>
+        <div class="overlay-text">
+            <h1>Living Machines, Lasting Harmony</h1>
+            <p>My purpose is to create a safe, green future where intelligent robots care for our earth and live
+                alongside us in a long, peaceful, and joyful life.</p>
+        </div>
+        <div class="scroll-down">↓ Scroll to explore</div>
+    </header>
+
+    <section id="projects" class="projects-section">
+        <div class="projects-text">
+            <h2>Projects</h2>
+            <p>
+                Explore my robotic projects and especially the complex and innovative Arachna SP1 —
+                a fusion of nature and machine.
+            </p>
+            <div>
+                <button class="btn">
+                    <i class="animation"></i> See More Projects <i class="animation"></i>
+                </button>
+            </div>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery" id="gallery">
+                <img src="assets/images/IMG_1.JPG" alt="Project 1">
+                <img src="assets/images/IMG_2.PNG" alt="Project 2">
+                <img src="assets/images/IMG_3.PNG" alt="Project 3">
+            </div>
+            <div class="gallery-buttons">
+                <button onclick="changeSlide(-1)">◀</button>
+                <button onclick="changeSlide(1)">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <video autoplay loop muted playsinline class="about-video">
+            <source src="assets/videos/home-about.mp4" type="video/mp4">
+        </video>
+        <div class="about-overlay">
+            <h2>Interested to know more about me?</h2>
+            <a class="fancy" href="#">
+                <span class="top-key"></span>
+                <span class="text">Get to know me!</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+            </a>
+        </div>
+
+    </section>
+
+    <script>
+        const gallery = document.getElementById("gallery");
+        const images = gallery.querySelectorAll("img");
+        let index = 0;
+
+        function changeSlide(direction) {
+            index += direction;
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            gallery.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(() => {
+            changeSlide(1);
+        }, 2000);
+    </script>
+</body>
+
+</html>
