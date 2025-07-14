@@ -255,8 +255,7 @@ html {
     position: relative;
     z-index: 1;
     background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    
     padding: 3rem;
     border-radius: 20px;
     color: white;
