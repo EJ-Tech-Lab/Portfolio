@@ -254,7 +254,7 @@ html {
 .about-overlay {
     position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0);
     
     padding: 3rem;
     border-radius: 20px;
