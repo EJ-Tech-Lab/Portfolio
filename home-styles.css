@@ -91,13 +91,17 @@ html {
 
 .hero-section {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 60px;
+    padding: 120px 1rem 60px 1rem;
+    /* Enough space for navbar */
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
 }
 
 .bg-video {
@@ -638,4 +642,19 @@ ul {
 .example-2 .icon-content a[data-social="youtube"] .filled,
 .example-2 .icon-content a[data-social="youtube"]~.tooltip {
     background-color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .overlay-text {
+        padding: 1rem;
+    }
+
+    .overlay-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .overlay-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 }
