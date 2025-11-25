@@ -184,24 +184,4 @@
   });
 
 })();
-const chatDiv = document.getElementById("chat");
-const msgInput = document.getElementById("userMessage");
-const sendBtn = document.getElementById("sendBtn");
 
-sendBtn.addEventListener("click", async () => {
-    const msg = msgInput.value;
-    if (!msg) return;
-
-    chatDiv.innerHTML += `<p><b>You:</b> ${msg}</p>`;
-
-    // Send message to your HF Space
-    const res = await fetch("https://huggingface.co/spaces/EJ-0/training/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: msg })
-    });
-
-    const data = await res.json();
-    chatDiv.innerHTML += `<p><b>Assistant:</b> ${data.reply}</p>`;
-    msgInput.value = "";
-});
