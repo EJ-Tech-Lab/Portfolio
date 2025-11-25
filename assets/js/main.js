@@ -185,48 +185,4 @@
 
 })();
 // main.js
-import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/gradio-client.esm.js";
-
-async function sendMessage(msg, chatHistory = []) {
-    try {
-        // Connect to your Space
-        const client = await Client.connect("EJ-0/training"); // your HF Space
-
-        // Call the chatbot function in the Space
-        const result = await client.predict("/user_interact", {
-            user_text: msg,
-            chat_history: chatHistory
-        });
-
-        // result.data[0] = cleared input
-        // result.data[1] = updated chat history
-        return result.data;
-    } catch (err) {
-        console.error("Error calling HF Space:", err);
-        return [msg, chatHistory];
-    }
-}
-
-// Example usage
-let chatHistory = [];
-document.querySelector("#sendBtn").addEventListener("click", async () => {
-    const inputBox = document.querySelector("#userMsg");
-    const msg = inputBox.value;
-
-    if (!msg) return;
-
-    const [_, updatedHistory] = await sendMessage(msg, chatHistory);
-    chatHistory = updatedHistory;
-
-    // Display chat
-    const chatDiv = document.querySelector("#chatBox");
-    chatDiv.innerHTML = "";
-    chatHistory.forEach(m => {
-        const p = document.createElement("p");
-        p.textContent = `${m.role.toUpperCase()}: ${m.content}`;
-        chatDiv.appendChild(p);
-    });
-
-    inputBox.value = "";
-});
 
