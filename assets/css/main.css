@@ -765,7 +765,7 @@ section,
   margin-top: 30px;
 }
 
-.skills .btn-get-started {
+.about .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-family: var(--heading-font);
